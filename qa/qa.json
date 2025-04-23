@@ -1,0 +1,27 @@
+[
+  {
+    "document_id": "doc_1",
+    "question": "What was the net income for 2025 in financial statement doc_1?",
+    "answer": "25228"
+  },
+  {
+    "document_id": "doc_1",
+    "question": "What was the depreciation and amortization value for 2024 in financial statement doc_1?",
+    "answer": "-63000"
+  },
+  {
+    "document_id": "doc_1",
+    "question": "What was the beginning cash balance in 2023 in financial statement doc_1?",
+    "answer": "-50924"
+  },
+  {
+    "document_id": "doc_1",
+    "question": "What was the ending cash balance in 2025 in financial statement doc_1?",
+    "answer": "-64474"
+  },
+  {
+    "document_id": "doc_1",
+    "question": "What was the net cash used in financing activities for 2024 in financial statement doc_1?",
+    "answer": "-120972"
+  }
+]
