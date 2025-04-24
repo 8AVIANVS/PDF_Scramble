@@ -1,4 +1,15 @@
-data = """255044462d312e360a25bff7a2fe0a312030206f626a0a3c3c202f4d6172
+from pathlib import Path
+
+def hex_to_pdf(hex_path: str, pdf_path: str):
+    hex_text = Path(hex_path).read_text()
+    pdf_bytes = bytes.fromhex(hex_text)
+    Path(pdf_path).write_bytes(pdf_bytes)
+
+def generate_hex():
+    with open("pdf/test.hex", "w") as hex_file:
+        hex_file.write(data)   
+
+data = f"""255044462d312e360a25bff7a2fe0a312030206f626a0a3c3c202f4d6172
 6b496e666f203c3c202f4d61726b65642074727565203e3e202f4d657461
 64617461203320302052202f5061676573203420302052202f5374727563
 7454726565526f6f74203520302052202f54797065202f436174616c6f67
@@ -7178,5 +7189,8 @@ d307e30702b107c30702f208019308a10802730882080255086508020208
 32613e5d203e3e0a7374617274787265660a3231343736360a2525454f46
 0a"""
 
-with open("test.hex", "w") as hex_file:
-    hex_file.write(data)
+# with open("test.hex", "w") as hex_file:
+    # hex_file.write(data)
+
+generate_hex()
+hex_to_pdf("pdf/test.hex", "pdf/test.pdf")
