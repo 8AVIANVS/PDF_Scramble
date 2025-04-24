@@ -1,33 +1,4 @@
-from pathlib import Path
-import random
-
-def hex_to_pdf(hex_path: str, pdf_path: str):
-    hex_text = Path(hex_path).read_text()
-    pdf_bytes = bytes.fromhex(hex_text)
-    Path(pdf_path).write_bytes(pdf_bytes)
-
-def generate_hex_and_answer(hex_path: str, json_path: str):
-    # mapping between numeral digits and encoded hex representation
-    numbers_list = [33, 34, 35, 36, 37, 38, 39, 41, 42, 43]
-
-    # get digits
-    first_digit = random.randint(1, 9)
-    second_digit = random.randint(0, 9)
-    third_digit = random.randint(0, 9)
-    fourth_digit = random.randint(0, 9)
-    fifth_digit = random.randint(0, 9)
-
-    truth = f"Net income is {first_digit}{second_digit}, {third_digit}{fourth_digit}{fifth_digit}"
-
-    # convert digits to hex
-    first = numbers_list[first_digit]
-    second = numbers_list[second_digit]
-    third = numbers_list[third_digit]
-    fourth = numbers_list[fourth_digit]
-    fifth = numbers_list[fifth_digit]
-
-    # scramble the hex with given digits
-    data = f"""255044462d312e360a25bff7a2fe0a312030206f626a0a3c3c202f4d6172
+255044462d312e360a25bff7a2fe0a312030206f626a0a3c3c202f4d6172
     6b496e666f203c3c202f4d61726b65642074727565203e3e202f4d657461
     64617461203320302052202f5061676573203420302052202f5374727563
     7454726565526f6f74203520302052202f54797065202f436174616c6f67
@@ -1030,12 +1001,12 @@ def generate_hex_and_answer(hex_path: str, json_path: str):
     20546a0a392e3433373937332030205464203c303034383e20546a0a4554
     0a454d430a2f4e6f6e537472756374203c3c2f4d43494420333537203e3e
     4244430a42540a2f46352031312e333239393939392054660a3120302030
-    202d31203439302e343231383820343134313820546d0a3c303031{first}3e20
-    546a0a362e333031313933322030205464203c303031{second}3e20546a0a362e
+    202d31203439302e343231383820343134313820546d0a3c303031433e20
+    546a0a362e333031313933322030205464203c303031333e20546a0a362e
     333031313933322030205464203c303030463e20546a0a332e3134373832
-    37312030205464203c303031{third}3e20546a0a362e33303131393332203020
-    5464203c303031{fourth}3e20546a0a362e333031313933322030205464203c30
-    3031{fifth}3e20546a0a45540a454d430a2f4e6f6e537472756374203c3c2f4d
+    37312030205464203c303031343e20546a0a362e33303131393332203020
+    5464203c303031353e20546a0a362e333031313933322030205464203c30
+    3031413e20546a0a45540a454d430a2f4e6f6e537472756374203c3c2f4d
     43494420333538203e3e4244430a42540a2f5370616e3c3c2f4163747561
     6c54657874203c46454646303041303e203e3e204244430a2f4635203131
     2e333239393939392054660a3120302030202d31203532352e3037383133
@@ -7205,14 +7176,4 @@ def generate_hex_and_answer(hex_path: str, json_path: str):
     663038366365653734333264383764356638386564396362643161353e3c
     313832386536303563643534333864373037663636343464373863353862
     32613e5d203e3e0a7374617274787265660a3231343736360a2525454f46
-    0a"""
-
-    with open(hex_path, "w") as hex_file:
-        hex_file.write(data)
-
-    with open(json_path, "w") as json_file:
-        json_file.write(truth)
-
-for i in range(10):
-    generate_hex_and_answer(f"pdf/test_{i}.hex", f"qa/test_{i}.json")
-    hex_to_pdf(f"pdf/test_{i}.hex", f"pdf/test_{i}.pdf")
+    0a
