@@ -11,6 +11,7 @@ with pikepdf.open("aapl43.pdf") as pdf:
     )
 
 # decoding font /F4
+# not being used currently
 pdf = pikepdf.open("aapl43.pdf")
 page = pdf.pages[0]
 f4_ref = page.obj['/Resources']['/Font']['/F4']

@@ -1,6 +1,13 @@
 from pathlib import Path
 import random
 
+def main() -> None:
+    for i in range(5):
+        generate_hex_and_answer(f"pdf/test_{i}.hex", f"qa/test_{i}.json")
+        hex_to_pdf(f"pdf/test_{i}.hex", f"pdf/test_{i}.pdf")
+
+
+
 def hex_to_pdf(hex_path: str, pdf_path: str):
     hex_text = Path(hex_path).read_text()
     pdf_bytes = bytes.fromhex(hex_text)
@@ -7213,6 +7220,6 @@ def generate_hex_and_answer(hex_path: str, json_path: str):
     with open(json_path, "w") as json_file:
         json_file.write(truth)
 
-for i in range(10):
-    generate_hex_and_answer(f"pdf/test_{i}.hex", f"qa/test_{i}.json")
-    hex_to_pdf(f"pdf/test_{i}.hex", f"pdf/test_{i}.pdf")
+if __name__ == "__main__":
+    main()
+    
