@@ -1,2 +1,18 @@
 .env
 __pycache__
+
+
+# Ignore contents of pdf directory
+/pdf/*
+# Keep the pdf directory itself
+!/pdf/.gitkeep
+
+# Ignore contents of qa directory
+/qa/*
+# Keep the qa directory itself
+!/qa/.gitkeep
+
+# Ignore contents of md directory
+/md/*
+# Keep the md directory itself
+!/md/.gitkeep
