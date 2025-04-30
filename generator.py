@@ -17,7 +17,7 @@ def generate_hex_and_answer(hex_path: str, json_path: str):
     fourth_digit = random.randint(0, 9)
     fifth_digit = random.randint(0, 9)
 
-    truth = f"Net income is {first_digit}{second_digit}, {third_digit}{fourth_digit}{fifth_digit}"
+    truth = f"Net income is {first_digit}{second_digit},{third_digit}{fourth_digit}{fifth_digit}"
 
     # convert digits to hex
     first = numbers_list[first_digit]
